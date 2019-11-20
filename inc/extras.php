@@ -7,6 +7,20 @@
 /**
  * Removes Comments from admin menu.
  */
+
+ function qod_body_classes($classes) {
+	 //Adds body class to singular pages.
+
+	 if (is_singular('page')) {
+		 global $post;
+
+		 $classes[] = 'page-' . $post->post_name;
+	 }
+	 return $classes;
+ }
+
+ add_filter( 'body_class', 'qod_body_classes' );
+
 function qod_remove_admin_menus() {
 	remove_menu_page( 'edit-comments.php' );
 }

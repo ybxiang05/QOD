@@ -9,11 +9,77 @@
   max-width: 1080px;
   margin: 0 auto;
   padding: 2.5%;
+  position: relative;
+
   .site-content {
-    margin: 5% 15%;
+    margin: 0;
+    @include tablet {
+      margin: 0;
+    }
+    @include desktop {
+      margin: 5% 15%;
+      &::before {
+        font-family: 'Font Awesome';
+        content: 'f10d';
+        position: absolute;
+        top: 250px;
+        left: 50px;
+      }
+      &::after {
+        font-family: 'Font Awesome';
+        content: 'f10';
+        position: absolute;
+        top: 250px;
+        right: 50px;
+      }
+    }
   }
 }
 
-/* All Archives Page */
+/*Home Page*/
+
+.home {
+  .site-main {
+    .entry-content {
+      font-size: 1.25rem;
+      @include tablet {
+        font-size: 1.75rem;
+      }
+      @include desktop {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+/* Archives Page */
+
+.page-archives {
+  .post-archives,
+  .category-archives,
+  .tag-archives {
+    ul {
+      list-style: none;
+      display: flex;
+      flex-flow: row wrap;
+      padding-left: 0;
+      margin-left: 0;
+      li {
+        margin-right: 1rem;
+        font-size: 1rem;
+        line-height: 2rem;
+        @include tablet {
+          font-size: 1.25rem;
+        }
+        @include desktop {
+          font-size: 1.25rem;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
 
 /* Submit a Quote Page */
