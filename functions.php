@@ -63,12 +63,10 @@ function qod_scripts() {
 	wp_enqueue_script( 'qod-starter-skip-link-focus-fix', get_template_directory_uri() . '/build/js/skip-link-focus-fix.min.js', array(), '20151215', true );
 
 	//place localized script here
-	wp_localize_script('qod-script', 'rest_vars', array(
+	wp_localize_script('qod-script', 'qod_vars', array(
 		'rest_url' => esc_url_raw(rest_url()),
         'wpapi_nonce' => wp_create_nonce('wp_rest'),
         'post_id' => get_the_ID(),
-        'user_id' => get_current_user_id(),
-        'comments_open' => comments_open(get_the_ID()),
     ));
 }
 add_action( 'wp_enqueue_scripts', 'qod_scripts' );

@@ -2,6 +2,18 @@
 # Page Templates
 --------------------------------------------------------------*/
 
+/*All pages*/
+
+.site {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5%;
+  .site-content {
+    margin: 5% 15%;
+  }
+}
+
 /* All Archives Page */
 
 /* Submit a Quote Page */
