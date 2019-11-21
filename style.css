@@ -319,6 +319,9 @@ ins {
 big {
   font-size: 125%; }
 
+a {
+  text-decoration: none; }
+
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -409,19 +412,33 @@ button {
   button:active, button:focus {
     border-color: #aaa #bbb #bbb; }
 
-input {
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   border: 2px solid #0c0;
   border-radius: 3px;
   background-color: #222;
-  color: #fff;
+  color: #0c0;
   font-size: 1rem;
   line-height: 1.5;
   padding: 0.6rem 1rem 0.4rem;
   margin-top: 2rem; }
-  input:hover {
-    border-color: #fff; }
-  input:active, input:focus {
-    border-color: #fff; }
+  @media (min-width: 620px) {
+    input[type='button'],
+    input[type='reset'],
+    input[type='submit'] {
+      font-size: 1.25rem; } }
+  @media (min-width: 1080px) {
+    input[type='button'],
+    input[type='reset'],
+    input[type='submit'] {
+      font-size: 1.25rem;
+      justify-self: center; } }
+  input[type='button']:hover,
+  input[type='reset']:hover,
+  input[type='submit']:hover {
+    border-color: #090;
+    color: #090; }
 
 /* Fields */
 input[type='text'],
@@ -469,51 +486,30 @@ a {
 
 /* Menus */
 .main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
   .main-navigation ul {
-    display: none;
+    display: block;
     list-style: none;
     margin: 0;
-    padding-left: 0; }
-    .main-navigation ul ul {
-      -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-              box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      float: left;
-      position: absolute;
-      top: 1.5rem;
-      left: -999rem;
-      z-index: 99999; }
-      .main-navigation ul ul ul {
-        left: -999rem;
-        top: 0; }
-      .main-navigation ul ul li:hover > ul,
-      .main-navigation ul ul li.focus > ul {
-        left: 100%; }
-      .main-navigation ul ul a {
-        width: 200px; }
-    .main-navigation ul li:hover > ul,
-    .main-navigation ul li.focus > ul {
-      left: auto; }
+    padding-left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
   .main-navigation li {
-    float: left;
-    position: relative; }
-  .main-navigation a {
-    display: block;
-    text-decoration: none; }
+    margin-right: 1rem;
+    padding-right: 1rem;
+    border-right: 1px solid #fff;
+    line-height: 1.25rem; }
 
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block; }
 
-@media screen and (min-width: 768px) {
-  .menu-toggle {
-    display: none; }
-  .main-navigation ul {
-    display: block; } }
+.menu-toggle {
+  display: none; }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
@@ -629,19 +625,20 @@ object {
         margin: 0; } }
     @media (min-width: 1080px) {
       .site .site-content {
-        margin: 5% 15%; }
-        .site .site-content::before {
-          font-family: 'Font Awesome';
-          content: 'f10d';
+        margin: 5% 15%;
+        padding: 0 2%; }
+        .site .site-content:before {
+          content: '\f10d';
+          left: 20px; }
+        .site .site-content:after {
+          content: '\f10e';
+          right: 20px; }
+        .site .site-content:before, .site .site-content:after {
+          font-family: 'FontAwesome';
           position: absolute;
-          top: 250px;
-          left: 50px; }
-        .site .site-content::after {
-          font-family: 'Font Awesome';
-          content: 'f10';
-          position: absolute;
-          top: 250px;
-          right: 50px; } }
+          top: 175px;
+          font-size: 125px;
+          color: #0c0; } }
 
 /*Home Page*/
 .home .site-main .entry-content {
@@ -652,6 +649,19 @@ object {
   @media (min-width: 1080px) {
     .home .site-main .entry-content {
       font-size: 2.5rem; } }
+
+.home .site-main .entry-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .home .site-main .entry-meta .entry-title,
+  .home .site-main .entry-meta .source {
+    font-size: 1.25rem;
+    font-weight: 300; }
+  .home .site-main .entry-meta .source {
+    -ms-flex-item-align: center;
+        align-self: center;
+    font-style: italic; }
 
 /* Archives Page */
 .page-archives .post-archives ul,
@@ -689,27 +699,37 @@ object {
       text-decoration: none; }
 
 /* Submit a Quote Page */
-.site-header .site-branding .site-title {
+.site-header {
+  padding-top: 30px; }
+  .site-header .site-branding .site-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+    @media (min-width: 620px) {
+      .site-header .site-branding .site-title {
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start; } }
+    @media (min-width: 1080px) {
+      .site-header .site-branding .site-title {
+        -ms-flex-pack: distribute;
+            justify-content: space-around; } }
+    .site-header .site-branding .site-title img {
+      width: 300px; }
+      @media (min-width: 620px) {
+        .site-header .site-branding .site-title img {
+          width: 500px; } }
+      @media (min-width: 1080px) {
+        .site-header .site-branding .site-title img {
+          width: 700px; } }
+
+.site-footer {
+  margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start; }
-  @media (min-width: 620px) {
-    .site-header .site-branding .site-title {
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: flex-start; } }
-  @media (min-width: 1080px) {
-    .site-header .site-branding .site-title {
-      -ms-flex-pack: distribute;
-          justify-content: space-around; } }
-  .site-header .site-branding .site-title img {
-    width: 300px; }
-    @media (min-width: 620px) {
-      .site-header .site-branding .site-title img {
-        width: 500px; } }
-    @media (min-width: 1080px) {
-      .site-header .site-branding .site-title img {
-        width: 700px; } }
+  -ms-flex-line-pack: start;
+      align-content: flex-start; }

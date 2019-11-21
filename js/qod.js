@@ -11,30 +11,37 @@
     })
       .done(function(data) {
         console.log(data);
+        const postData = data.shift();
+        const postContent = postData.content.rendered;
+        const postTitle = postData.title.rendered;
+        const postSource = postData._qod_quote_source;
+        const postSourceUrl = postData._qod_quote_source_url;
 
-        const postObj = data[0];
-
-        if (postObj._qod_quote_source !== '') {
-          // output some html
-          console.log(postObj._qod_quote_source);
+        $('.entry-content').html(postContent);
+        $('.entry-title').html(`<p> &ndash; ${postTitle}</p>`);
+        if (postSourceUrl.length) {
+          $('.source').html(
+            `<p>, &nbsp;<a href="${postSourceUrl}">${postSource}</a></p>`
+          );
+        } else {
+          $('.source').html(postSource);
         }
 
-        const quote = `
-        <article>
-            <div class="entry-content">${data[0].content.rendered}</div>
-            <div class="entry-meta">
-                <h2 class="entry-title">${data[0].title.rendered}</h2>
-                <a class="source-url" href="${data[0]._qod_quote_source_url}">
-                    <p class="source">${data[0]._qod_quote_source}</p>
-                </a>
-            </div>
-        </article>
-        `;
+        // const quote = `
+        // <article>
+        //     <div class="entry-content">${data[0].content.rendered}</div>
+        //     <div class="entry-meta">
+        //         <h2 class="entry-title"> - ${data[0].title.rendered} </h2>
+        //         <a class="source-url" href="${data[0]._qod_quote_source_url}">
+        //             <p class="source">${data[0]._qod_quote_source}</p>
+        //         </a>
+        //     </div>
+        // </article>
+        // `;
         // const quoteMeta = function quoteMetaProcessing(data) {
         //   if (data[0]._qod_quote_source && data[0].qod_quote_source_url) {
         //   }
         // };
-        $('article').html(quote);
       })
       .fail(function(error) {
         console.log(error, 'An error has occurred');
