@@ -389,6 +389,17 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
+/*General Layout*/
+.submit-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  margin-top: 2rem; }
+
 /* Buttons */
 button {
   border: 2px solid #0c0;
@@ -447,23 +458,20 @@ input[type='url'],
 input[type='password'],
 input[type='search'],
 textarea {
-  color: #666;
-  border: 1px solid #ccc;
-  border-radius: 3px; }
+  color: #fff;
+  border: 2px solid #0c0;
+  border-radius: 3px;
+  background-color: #222;
+  padding: 3px;
+  width: 60%; }
   input[type='text']:focus,
   input[type='email']:focus,
   input[type='url']:focus,
   input[type='password']:focus,
   input[type='search']:focus,
   textarea:focus {
-    color: #111; }
-
-input[type='text'],
-input[type='email'],
-input[type='url'],
-input[type='password'],
-input[type='search'] {
-  padding: 3px; }
+    color: #fff;
+    border-color: #fff; }
 
 textarea {
   padding-left: 3px;
@@ -479,10 +487,6 @@ a {
     color: #00cc00; }
   a:hover, a:focus, a:active {
     color: #090; }
-  a:focus {
-    outline: thin dotted; }
-  a:hover, a:active {
-    outline: 0; }
 
 /* Menus */
 .main-navigation {
@@ -504,31 +508,8 @@ a {
     line-height: 1.25rem; }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block; }
-
 .menu-toggle {
   display: none; }
-
-.site-main .comment-navigation, .site-main
-.posts-navigation, .site-main
-.post-navigation {
-  margin: 0 0 1.5rem;
-  overflow: hidden; }
-
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-  float: left;
-  width: 50%; }
-
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-  float: right;
-  text-align: right;
-  width: 50%; }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -663,6 +644,11 @@ object {
         align-self: center;
     font-style: italic; }
 
+@media (min-width: 1080px) {
+  .home .site-main .new-quote-button-container {
+    max-width: 200px;
+    margin: auto; } }
+
 /* Archives Page */
 .page-archives .post-archives ul,
 .page-archives .category-archives ul,
@@ -728,8 +714,21 @@ object {
 
 .site-footer {
   margin-top: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   -ms-flex-line-pack: start;
       align-content: flex-start; }
+  @media (min-width: 620px) {
+    .site-footer {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
+  @media (min-width: 1080px) {
+    .site-footer {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; } }
+  .site-footer .site-info p {
+    margin-top: 0; }

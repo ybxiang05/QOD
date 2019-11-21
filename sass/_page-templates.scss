@@ -67,6 +67,12 @@
         // }
       }
     }
+    .new-quote-button-container {
+      @include desktop {
+        max-width: 200px;
+        margin: auto;
+      }
+    }
   }
 }
 
