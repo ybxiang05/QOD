@@ -691,6 +691,7 @@ object {
   .page-archives .post-archives ul li,
   .page-archives .category-archives ul li,
   .page-archives .tag-archives ul li {
+    list-style: none;
     margin-right: 1rem;
     font-size: 1rem;
     line-height: 2rem; }
