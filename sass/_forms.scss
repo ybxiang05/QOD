@@ -1,6 +1,9 @@
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
+/*
+Contains:
+* General Layout
+*Buttons
+*Fields
+*/
 
 /*General Layout*/
 
@@ -75,7 +78,7 @@ textarea {
   border-radius: 3px;
   background-color: #222;
   padding: 7px;
-  width: 100%;
+  width: 60%;
 
   &:focus {
     color: #fff;
@@ -83,14 +86,7 @@ textarea {
   }
 }
 
-input[type='text'],
-input[type='email'],
-input[type='url'],
-input[type='password'],
-input[type='search'] {
-}
-
+input[type='search'],
 textarea {
-  padding-left: 3px;
   width: 100%;
 }

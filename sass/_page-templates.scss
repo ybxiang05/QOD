@@ -57,6 +57,7 @@
     }
     .entry-meta {
       display: flex;
+      flex-flow: row wrap;
       .entry-title,
       .source {
         font-size: 1.25rem;
@@ -67,6 +68,7 @@
         font-style: italic;
       }
     }
+
     .new-quote-button-container {
       @include desktop {
         max-width: 200px;

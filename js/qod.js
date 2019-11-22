@@ -1,6 +1,11 @@
 (function($) {
+  let lastPage = '';
+
   $('#new-quote-button').on('click', function(event) {
     event.preventDefault();
+
+    lastPage = document.URL;
+
     console.log('clicked');
     $.ajax({
       method: 'GET',
@@ -16,20 +21,34 @@
         const postSource = postData._qod_quote_source;
         const postSourceUrl = postData._qod_quote_source_url;
 
+        history.pushState(null, null, qod_vars.home_url + '/' + postData.slug);
+        //1st value is an object which manages State
+        //2nd value is the url title browser tab
+        //3rd value is the url in the browser
+
         $('.entry-content').html(postContent);
-        $('.entry-title').html(`<p> &ndash; ${postTitle}</p>`);
-        if (postSourceUrl.length) {
+        if (postSourceUrl.length && postSource.length) {
+          $('.entry-title').html(`<p> &ndash; ${postTitle}, </p>`);
           $('.source').html(
-            `<p>, &nbsp;<a href="${postSourceUrl}">${postSource}</a></p>`
+            `<p> &nbsp; <a href="${postSourceUrl}">${postSource}</a></p>`
           );
+        } else if (postSource.length) {
+          $('.entry-title').html(`<p> &ndash; ${postTitle}, </p>`);
+          $('.source').html(`<p> &nbsp; ${postSource}</p>`);
         } else {
-          $('.source').html(postSource);
+          $('.entry-title').html(`<p> &ndash; ${postTitle}</p>`);
+          $('.source').html('');
         }
       })
       .fail(function(error) {
         console.log(error, 'An error has occurred');
-      });
-  });
+      }); //$.ajax
+    //update page when use page forward/back
+    $(window).on('popstate', function() {
+      //update url
+      window.location.replace(lastPage);
+    });
+  }); // end of show me another click
 
   $('#quote-submit-button').on('click', function(submit) {
     submit.preventDefault();

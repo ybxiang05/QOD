@@ -26,9 +26,9 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; ?>
-		
-			<?php qod_numbered_pagination(); ?>
-
+			<div class="pagination-nav">
+				<?php qod_numbered_pagination(); ?>
+			</div>
 		<?php else : ?>
 
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>
