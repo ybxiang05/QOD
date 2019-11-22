@@ -29,19 +29,22 @@
       }
       &:before,
       &:after {
-        font-family: 'FontAwesome';
+        font-family: 'Font Awesome 5 Free';
         position: absolute;
         top: 175px;
         font-size: 125px;
         color: #0c0;
+        font-weight: 900;
       }
     }
   }
 }
 
-/*Home Page*/
+/*Home Page, Single Quote Page, Archive Pages (Categories, Tags)*/
 
-.home {
+.home,
+.single,
+.archive {
   .site-main {
     .entry-content {
       font-size: 1.25rem;
@@ -62,9 +65,6 @@
       .source {
         align-self: center;
         font-style: italic;
-        // a{
-        //     text-decoration
-        // }
       }
     }
     .new-quote-button-container {
@@ -76,7 +76,7 @@
   }
 }
 
-/* Archives Page */
+/* Archives Index Page */
 
 .page-archives {
   .post-archives,
@@ -100,10 +100,44 @@
         }
         a {
           text-decoration: none;
+          font-size: 1.25rem;
         }
       }
     }
   }
 }
 
+/*Archives Pages (Categories, Tags)*/
+.archive {
+  .page-title,
+  article {
+    border-bottom: 1px dotted #fff;
+    padding-bottom: 1rem;
+  }
+}
+
 /* Submit a Quote Page */
+// See _forms.scss
+
+/* 404 */
+
+.error404 {
+  .search-form {
+    display: flex;
+    label {
+      width: 240px;
+      input::placeholder {
+        font-size: 1.25rem;
+        font-weight: $font__weight;
+        align-self: center;
+      }
+    }
+    .search-submit {
+      margin-left: 30px;
+      padding-top: 10px;
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

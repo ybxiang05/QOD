@@ -65,3 +65,13 @@ a {
 //     width: 50%;
 //   }
 // }
+
+/*Pagination Nav*/
+.number-pagination {
+  font-weight: $font__weight;
+  padding-top: 2rem;
+  a,
+  span {
+    margin-right: 0.5rem;
+  }
+}

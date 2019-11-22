@@ -462,8 +462,8 @@ textarea {
   border: 2px solid #0c0;
   border-radius: 3px;
   background-color: #222;
-  padding: 3px;
-  width: 60%; }
+  padding: 7px;
+  width: 100%; }
   input[type='text']:focus,
   input[type='email']:focus,
   input[type='url']:focus,
@@ -510,6 +510,14 @@ a {
 /* Small menu. */
 .menu-toggle {
   display: none; }
+
+/*Pagination Nav*/
+.number-pagination {
+  font-weight: 300;
+  padding-top: 2rem; }
+  .number-pagination a,
+  .number-pagination span {
+    margin-right: 0.5rem; }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -615,41 +623,58 @@ object {
           content: '\f10e';
           right: 20px; }
         .site .site-content:before, .site .site-content:after {
-          font-family: 'FontAwesome';
+          font-family: 'Font Awesome 5 Free';
           position: absolute;
           top: 175px;
           font-size: 125px;
-          color: #0c0; } }
+          color: #0c0;
+          font-weight: 900; } }
 
-/*Home Page*/
-.home .site-main .entry-content {
+/*Home Page, Single Quote Page, Archive Pages (Categories, Tags)*/
+.home .site-main .entry-content,
+.single .site-main .entry-content,
+.archive .site-main .entry-content {
   font-size: 1.25rem; }
   @media (min-width: 620px) {
-    .home .site-main .entry-content {
+    .home .site-main .entry-content,
+    .single .site-main .entry-content,
+    .archive .site-main .entry-content {
       font-size: 1.75rem; } }
   @media (min-width: 1080px) {
-    .home .site-main .entry-content {
+    .home .site-main .entry-content,
+    .single .site-main .entry-content,
+    .archive .site-main .entry-content {
       font-size: 2.5rem; } }
 
-.home .site-main .entry-meta {
+.home .site-main .entry-meta,
+.single .site-main .entry-meta,
+.archive .site-main .entry-meta {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
   .home .site-main .entry-meta .entry-title,
-  .home .site-main .entry-meta .source {
+  .home .site-main .entry-meta .source,
+  .single .site-main .entry-meta .entry-title,
+  .single .site-main .entry-meta .source,
+  .archive .site-main .entry-meta .entry-title,
+  .archive .site-main .entry-meta .source {
     font-size: 1.25rem;
     font-weight: 300; }
-  .home .site-main .entry-meta .source {
+  .home .site-main .entry-meta .source,
+  .single .site-main .entry-meta .source,
+  .archive .site-main .entry-meta .source {
     -ms-flex-item-align: center;
         align-self: center;
     font-style: italic; }
 
 @media (min-width: 1080px) {
-  .home .site-main .new-quote-button-container {
+  .home .site-main .new-quote-button-container,
+  .single .site-main .new-quote-button-container,
+  .archive .site-main .new-quote-button-container {
     max-width: 200px;
     margin: auto; } }
 
-/* Archives Page */
+/* Archives Index Page */
 .page-archives .post-archives ul,
 .page-archives .category-archives ul,
 .page-archives .tag-archives ul {
@@ -682,9 +707,43 @@ object {
     .page-archives .post-archives ul li a,
     .page-archives .category-archives ul li a,
     .page-archives .tag-archives ul li a {
-      text-decoration: none; }
+      text-decoration: none;
+      font-size: 1.25rem; }
+
+/*Archives Pages (Categories, Tags)*/
+.archive .page-title,
+.archive article {
+  border-bottom: 1px dotted #fff;
+  padding-bottom: 1rem; }
 
 /* Submit a Quote Page */
+/* 404 */
+.error404 .search-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .error404 .search-form label {
+    width: 240px; }
+    .error404 .search-form label input::-webkit-input-placeholder {
+      font-size: 1.25rem;
+      font-weight: 300;
+      align-self: center; }
+    .error404 .search-form label input::-ms-input-placeholder {
+      font-size: 1.25rem;
+      font-weight: 300;
+      -ms-flex-item-align: center;
+          align-self: center; }
+    .error404 .search-form label input::placeholder {
+      font-size: 1.25rem;
+      font-weight: 300;
+      -ms-flex-item-align: center;
+          align-self: center; }
+  .error404 .search-form .search-submit {
+    margin-left: 30px;
+    padding-top: 10px; }
+    .error404 .search-form .search-submit i {
+      font-size: 1.25rem; }
+
 .site-header {
   padding-top: 30px; }
   .site-header .site-branding .site-title {

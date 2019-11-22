@@ -37,8 +37,8 @@ get_header(); ?>
             <div class="tag-archives clearfix">
                <h2>Tags</h2>
                <?php wp_tag_cloud( array(
-                  'smallest' => 1,
-                  'largest' => 1,
+                  'smallest' => 1.25,
+                  'largest' => 1.25,
                   'unit' => 'rem',
                   'format' => 'list'
                ) ); ?>
