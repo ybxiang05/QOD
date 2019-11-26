@@ -6,7 +6,6 @@
 
     lastPage = document.URL;
 
-    console.log('clicked');
     $.ajax({
       method: 'GET',
       url:
@@ -14,7 +13,6 @@
         '/wp/v2/posts?filter[orderby]=rand&filter[posts_per_page]=1'
     })
       .done(function(data) {
-        console.log(data);
         const postData = data.shift();
         const postContent = postData.content.rendered;
         const postTitle = postData.title.rendered;
@@ -40,9 +38,7 @@
           $('.source').html('');
         }
       })
-      .fail(function(error) {
-        console.log(error, 'An error has occurred');
-      }); //$.ajax
+      .fail(function(error) {}); //$.ajax
     //update page when use page forward/back
     $(window).on('popstate', function() {
       //update url
@@ -52,7 +48,6 @@
 
   $('#quote-submit-button').on('click', function(submit) {
     submit.preventDefault();
-    console.log('clicked');
 
     $.ajax({
       method: 'POST',
@@ -69,23 +64,12 @@
       }
     })
       .done(function() {
-        console.log('clicked!');
         $('#quote-submission-form').hide();
         $('.submit-success-message').show();
       })
       .fail(function() {
         $('.submit-fail-message').show();
       });
-    //1. add click event to #quote-submit-button
-
-    //front-end:
-    //2. when clicked, add display:none class to #quote-submission-form (use .hide() / .show())
-    //3. when clicked, add display:block class to .submit-success-message
-
-    //back-end:
-    //4. create new post
-    //5. add post to archive
-    //6. prevent publishing post, status pending
   });
 })(jQuery);
 //Immediately Invoked Function Expression, IIFE
